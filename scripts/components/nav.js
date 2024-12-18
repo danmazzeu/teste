@@ -15,10 +15,6 @@ $(document).ready(function() {
         }
     }
 
-    $('nav').on('touchmove', function(event) {
-        event.preventDefault();
-    });
-
     $('nav').on('mouseenter', function() {
         isHovering = true;
     });
