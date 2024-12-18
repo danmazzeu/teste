@@ -14,17 +14,15 @@ $(document).ready(function() {
     });
 
     nav.on('touchstart', function(e) {
-        isDragging = true;
+
         startX = e.originalEvent.touches[0].clientX;
       });
       
       nav.on('touchmove', function(e) {
-        if (isDragging) {
           e.preventDefault(); // Prevent default scrolling behavior
           const deltaX = e.originalEvent.touches[0].clientX - startX;
           nav.scrollLeft(nav.scrollLeft() + deltaX);
           startX = e.originalEvent.touches[0].clientX;
-        }
       });
 
     $('nav a').on('click', function() {
