@@ -19,7 +19,6 @@ $(document).ready(function() {
       });
       
       nav.on('touchmove', function(e) {
-          e.preventDefault(); // Prevent default scrolling behavior
           const deltaX = e.originalEvent.touches[0].clientX - startX;
           nav.scrollLeft(nav.scrollLeft() + deltaX);
           startX = e.originalEvent.touches[0].clientX;
