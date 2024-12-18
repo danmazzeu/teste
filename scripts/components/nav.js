@@ -20,7 +20,7 @@ $(document).ready(function() {
       
       nav.on('touchmove', function(e) {
           const deltaX = e.originalEvent.touches[0].clientX + startX;
-          nav.scrollLeft(nav.scrollLeft() + deltaX);
+          nav.scrollLeft(nav.scrollLeft() - deltaX);
           startX = e.originalEvent.touches[0].clientX;
       });
 
