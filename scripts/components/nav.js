@@ -7,11 +7,11 @@ const lastChild = document.querySelector('nav div:last-child');
 nav.style.scrollbarWidth = 'none';
 nav.style['-webkit-scrollbar-width'] = 'none';
 
-let lastX = 0;
-let isHovering;
-let limitWidth = 730;
-
 function navControl() {
+    let lastX = 0;
+    let isHovering;
+    let limitWidth = 730;
+
     if (isHovering) {
         const deltaX = event.clientX - lastX;
         nav.scrollLeft += deltaX;
