@@ -18,7 +18,6 @@ $(document).ready(function() {
       });
       
       nav.on('touchmove', function(e) {
-        e.preventDefault();
         const deltaX = e.originalEvent.touches[0].clientX - startX;
         nav.scrollLeft(nav.scrollLeft() - deltaX); // Invert the deltaX
         startX = e.originalEvent.touches[0].clientX;
