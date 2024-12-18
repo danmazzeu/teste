@@ -1,55 +1,54 @@
-const nav = document.querySelector('nav');
-const maxScrollRight = nav.scrollWidth - nav.clientWidth;
+$(document).ready(function() {
+    $('nav').css({
+        'overflow-x': 'hidden',
+        '-webkit-overflow-scrolling': 'touch'
+    });
 
-const firstChild = document.querySelector('nav div:first-child');
-const lastChild = document.querySelector('nav div:last-child');
-
-nav.style.scrollbarWidth = 'none';
-nav.style['-webkit-scrollbar-width'] = 'none';
-
-function navControl() {
     let lastX = 0;
-    let isHovering;
-    let limitWidth = 730;
+    let isHovering = false;
 
-    if (isHovering) {
-        const deltaX = event.clientX - lastX;
-        nav.scrollLeft += deltaX;
-        lastX = event.clientX;
-
-        const scrollPosition = nav.scrollLeft;
-        const halfScrollWidth = maxScrollRight / 2;
-        
-        if (window.innerWidth <= limitWidth) {
-            if (scrollPosition <= 0) {
-                firstChild.style.display = 'none';
-                lastChild.style.display = 'flex';
-            } else if (scrollPosition >= halfScrollWidth) {
-                firstChild.style.display = 'flex';
-                lastChild.style.display = 'none';
-            } else {
-                firstChild.style.display = 'none';
-                lastChild.style.display = 'none';
-            }
+    function navControl() {
+        if (isHovering) {
+            const deltaX = event.clientX - lastX;
+            $('nav').scrollLeft($('nav').scrollLeft() + deltaX);
+            lastX = event.clientX;
         }
     }
-}
 
-nav.addEventListener('mouseenter', () => {
-    isHovering = true;
-});
-    
-nav.addEventListener('mouseleave', () => {
-    isHovering = false;
-    firstChild.style.display = 'none';
-    lastChild.style.display = 'none';
-});
-    
-document.addEventListener('mousemove', (event) => {
-    navControl();
-});
+    $('nav').on('mouseenter', function() {
+        isHovering = true;
+    });
 
-document.addEventListener('touchmove', (event) => {
-    isHovering = true;
-    navControl();
+    $('nav').on('mouseleave', function() {
+        isHovering = false;
+    });
+
+    $(document).on('mousemove touchmove', navControl);
+
+    $('nav a').on('click', function() {
+        const href = $(this).attr('href').split('#');
+
+        $('nav a').removeClass('active');
+        $(this).addClass('active');
+    
+        console.log(href[1]);
+    });
+
+    if (window.location.hash == '') {
+        window.location.href = '#presentation';
+    }
+
+    $('nav a').each(function() {
+        const href = $(this).attr('href');
+        const currentUrl = window.location.href;
+    
+        if (href === currentUrl) {
+            $(this).addClass('active');
+        } else if (href.indexOf('#') === 0) {
+            const currentHash = window.location.hash;
+            if (href === currentHash) {
+                $(this).addClass('active');
+            }
+        }
+    });
 });
