@@ -25,6 +25,17 @@ $(document).ready(function() {
 
     $(document).on('mousemove', navControl);
 
+    $('nav').on('touchstart', function(event) {
+        isHovering = true;
+        lastX = event.touches[0].clientX;
+    });
+    
+    $(document).on('touchmove', navControl);
+    
+    $(document).on('touchend', function() {
+        isHovering = false;
+    });
+
     $('nav a').on('click', function() {
         const href = $(this).attr('href').split('#');
 
