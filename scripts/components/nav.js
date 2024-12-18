@@ -50,5 +50,6 @@ document.addEventListener('mousemove', (event) => {
 });
 
 document.addEventListener('touchmove', (event) => {
+    isHovering = true;
     navControl();
 });
