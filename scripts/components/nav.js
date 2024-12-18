@@ -4,36 +4,13 @@ $(document).ready(function() {
         '-webkit-overflow-scrolling': 'touch'
     });
 
-    let lastX = 0;
-    let isHovering = false;
-
-    function navControl() {
-        if (isHovering) {
-            const deltaX = event.clientX - lastX;
-            $('nav').scrollLeft($('nav').scrollLeft() + deltaX);
-            lastX = event.clientX;
-        }
-    }
-
-    $('nav').on('mouseenter', function() {
-        isHovering = true;
-    });
-
-    $('nav').on('mouseleave', function() {
-        isHovering = false;
-    });
-
-    $(document).on('mousemove', navControl);
-
-    $('nav').on('touchstart', function(event) {
-        isHovering = true;
-        lastX = event.touches[0].clientX;
-    });
-    
-    $(document).on('touchmove', navControl);
-    
-    $(document).on('touchend', function() {
-        isHovering = false;
+    const nav = $('nav');
+    let startX;
+  
+    nav.mousemove(function(e) {
+        const deltaX = e.clientX - startX;
+        nav.scrollLeft(nav.scrollLeft() + deltaX);
+        startX = e.clientX;
     });
 
     $('nav a').on('click', function() {
