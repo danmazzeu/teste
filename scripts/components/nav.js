@@ -15,6 +15,10 @@ $(document).ready(function() {
         }
     }
 
+    $('nav').on('touchmove', function() {
+        isHovering = true;
+    });
+
     $('nav').on('mouseenter', function() {
         isHovering = true;
     });
