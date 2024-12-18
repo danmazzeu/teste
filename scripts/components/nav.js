@@ -9,13 +9,14 @@ $(document).ready(function() {
 
     function navControl() {
         if (isHovering) {
-            const deltaX = event.clientX - lastX;
-            $('nav').scrollLeft($('nav').scrollLeft() + deltaX);
-            lastX = event.clientX;
+          const deltaX = event.changedTouches ? event.changedTouches[0].clientX - lastX : event.clientX - lastX;
+          $('nav').scrollLeft($('nav').scrollLeft() + deltaX);
+          lastX = event.changedTouches ? event.changedTouches[0].clientX : event.clientX;
         }
     }
 
-    $('nav').on('touchmove', function() {
+    $('nav').on('touchmove', function(event) {
+        event.preventDefault();
         isHovering = true;
     });
 
