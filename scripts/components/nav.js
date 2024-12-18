@@ -11,17 +11,7 @@ let lastX = 0;
 let isHovering;
 let limitWidth = 730;
 
-nav.addEventListener('mouseenter', () => {
-    isHovering = true;
-});
-    
-nav.addEventListener('mouseleave', () => {
-    isHovering = false;
-    firstChild.style.display = 'none';
-    lastChild.style.display = 'none';
-});
-    
-document.addEventListener('mousemove', (event) => {
+function navControl() {
     if (isHovering) {
         const deltaX = event.clientX - lastX;
         nav.scrollLeft += deltaX;
@@ -43,4 +33,22 @@ document.addEventListener('mousemove', (event) => {
             }
         }
     }
+}
+
+nav.addEventListener('mouseenter', () => {
+    isHovering = true;
+});
+    
+nav.addEventListener('mouseleave', () => {
+    isHovering = false;
+    firstChild.style.display = 'none';
+    lastChild.style.display = 'none';
+});
+    
+document.addEventListener('mousemove', (event) => {
+    navControl();
+});
+
+document.addEventListener('touchmove', (event) => {
+    navControl();
 });
