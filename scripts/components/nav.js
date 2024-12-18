@@ -14,14 +14,14 @@ $(document).ready(function() {
     });
 
     nav.on('touchstart', function(e) {
-
         startX = e.originalEvent.touches[0].clientX;
       });
       
       nav.on('touchmove', function(e) {
-          const deltaX = e.originalEvent.touches[0].clientX + startX;
-          nav.scrollLeft(nav.scrollLeft() - deltaX);
-          startX = e.originalEvent.touches[0].clientX;
+        e.preventDefault();
+        const deltaX = e.originalEvent.touches[0].clientX - startX;
+        nav.scrollLeft(nav.scrollLeft() - deltaX); // Invert the deltaX
+        startX = e.originalEvent.touches[0].clientX;
       });
 
     $('nav a').on('click', function() {
