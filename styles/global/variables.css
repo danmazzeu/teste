@@ -1,0 +1,9 @@
+:root {
+    /* Body */
+    --body-padding: 15px;
+    --body-background: #404040;
+
+    /* Nav */
+    --border-size: 8px;
+    --border-color: #252525;
+}
