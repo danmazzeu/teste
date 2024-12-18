@@ -30,6 +30,10 @@ a {
     text-decoration: none !important;
 }
 
+a:focus, a:active {
+    outline: none !important;
+}
+
 select {
     appearance: none;
     -moz-appearance: none;
