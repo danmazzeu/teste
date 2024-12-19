@@ -54,5 +54,5 @@ $(document).ready(function() {
   
     audio.addEventListener('loadedmetadata', updateMusicName);
     audio.src = musicList[currentSongIndex];
-    audio.play();
+    // audio.play();
 });
