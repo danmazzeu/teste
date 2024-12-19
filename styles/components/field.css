@@ -7,7 +7,7 @@
 .field * { text-shadow: none !important; }
 
 .field > input {
-    font-size: 16px;
+    font-size: 17px;
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #ccc; 
