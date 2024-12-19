@@ -1,7 +1,7 @@
 #player {
     position: fixed;
     top: 0;
-    right: 60px;
+    right: 58px;
     width: 100vh;
     padding: 10px;
     transform: rotate(-90deg);
