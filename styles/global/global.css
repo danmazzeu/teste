@@ -15,8 +15,8 @@
 html { scroll-behavior: smooth; }
 
 body {
-    padding: var(--body-padding);
-    background-color: var(--body-background);
+    padding: 15px;
+    background-color: #f5f5f5;
 }
 
 ul { list-style: none; }
@@ -32,6 +32,13 @@ a {
 
 a:focus, a:active {
     outline: none !important;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
 }
 
 input,
@@ -58,3 +65,22 @@ textarea:disabled {
 }
 
 .hidden { display: none !important; }
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #cccccc;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border: 2px solid #333;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #333;
+}
